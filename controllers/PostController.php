@@ -44,7 +44,7 @@ class PostController extends AppController{
 	}
 	
 	/*
-	*actionIndex выводит страницу поиска
+	*actionSearch выводит страницу поиска
 	*
 	*
 	*/
@@ -62,7 +62,7 @@ class PostController extends AppController{
 	}
 	
 	/*
-	*actionIndex выводит страницу категории
+	*actionCategory выводит страницу категории
 	*
 	*
 	*/
