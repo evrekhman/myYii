@@ -17,7 +17,17 @@ class PostController extends AppController{
 	public function actionIndex()
 	{
 		
-		$query = Mat::find()->select(/*введите поля какие вам нужны*/)->where(/*введите условия*/)->orderBy('id DESC');
+ 
+		$query = Mat::find()->select(/*введите поля какие вам нужны*
+					SELECT t1.product_id,
+					       t1.product_name,
+					       t1.product_desc,
+					       t2.product_price,
+					       t2.group_name
+					  FROM t1, t2
+		/)->where(/*введите условия
+					WHERE t1.group_id_ref = t2.group_id
+		*/)->orderBy('id DESC');
 		$pages = new \yii\data\Pagination(['totalCount' => $query->count(), 'pageSize' => 10, 'pageSizeParam' => false, 'forcePageParam' => false]);
 		$posts = $query->offset($pages->offset)->limit($pages->limit)->all();
 		return $this->render('index',compact('posts','pages'));
